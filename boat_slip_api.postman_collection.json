@@ -1,0 +1,2145 @@
+{
+	"info": {
+		"_postman_id": "6daa24de-df54-42b8-9885-823f5f4342d6",
+		"name": "final-sunderla",
+		"description": "This collection tests the API specification given for Assignment 3.\nIn order to run this collection, you need an environment which has the following 3 environment variables pre-defined:\n\napp_url\n- Set this to your app. E.g., when running locally set it to http://localhost:8080. When running the app on GCP. set it to https://myapp.appsport.com\n\ninvalid_boat_id\n- Set it to a value that's not an ID of any boat in your project. I have set it to 1 and that should work for you as well.\n- \n\ninvalid_slip_id\n- Set it to a value that's not an ID of any slip in your porject. I have set it to 1 and that should work for you as well.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add boat 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9fda008b-9c71-4fb3-98f9-560a4d0c8e17",
+						"exec": [
+							"pm.environment.set(\"boat_id\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 2nd boat 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e6b1641b-ba68-49de-90d9-e98f1d2c92d6",
+						"exec": [
+							"pm.environment.set(\"boat_id_1\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey 2\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 3rd boat 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c86fb414-a06e-4985-9401-a803189fc81c",
+						"exec": [
+							"pm.environment.set(\"boat_id_2\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey 3\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 4th boat 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc6982cc-7362-4f13-a200-fa43d79054af",
+						"exec": [
+							"pm.environment.set(\"boat_id_3\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey 4\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 5th boat 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a88ebbc7-f35c-409a-adf2-acbbd002991d",
+						"exec": [
+							"pm.environment.set(\"boat_id_4\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey 5\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 6th boat 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac52101e-a4bf-41e1-a897-5118c35b378a",
+						"exec": [
+							"pm.environment.set(\"boat_id_5\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey 6\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 7th boat 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60410a81-87c0-41f8-9094-034392623303",
+						"exec": [
+							"pm.environment.set(\"boat_id_6\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey 7\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat other jwt 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "864e775d-7a9a-42b9-b283-6b5db17aeb01",
+						"exec": [
+							"pm.environment.set(\"boat_jwt2_1\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Enterprise\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat 2 other jwt 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d284f383-5e18-4732-ac67-c340e5bf8c4b",
+						"exec": [
+							"pm.environment.set(\"boat_jwt2_2\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Enterprise 2\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add slip 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b8383a00-c5ad-4e09-8042-dc8ebe3600e9",
+						"exec": [
+							"pm.environment.set(\"slip_id\", pm.response.json()[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/slips",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 2nd slip 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44b7fe0d-e7c1-4893-bc4b-fa3dd9997512",
+						"exec": [
+							"pm.environment.set(\"slip_id_1\", pm.response.json()[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/slips",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 3rd slip 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac07c361-5442-40b1-a5b3-1ce3303241f6",
+						"exec": [
+							"pm.environment.set(\"slip_id_2\", pm.response.json()[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/slips",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 4th slip 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62267887-cc0d-4ec2-b313-0d14ec31c660",
+						"exec": [
+							"pm.environment.set(\"slip_id_3\", pm.response.json()[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/slips",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 5th slip 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "32fe856f-72e4-44e1-9a74-e7485b979a64",
+						"exec": [
+							"pm.environment.set(\"slip_id_4\", pm.response.json()[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/slips",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 6th slip 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4620e662-b07f-4ed6-9404-30517fdec729",
+						"exec": [
+							"pm.environment.set(\"slip_id_5\", pm.response.json()[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/slips",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 7th slip 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d1a66e08-be4b-4f7d-87a3-d678b7172680",
+						"exec": [
+							"pm.environment.set(\"slip_id_6\", pm.response.json()[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/slips",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "invalid method 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "90fedcca-8dc1-4264-b1c8-b398b2f2aae7",
+						"exec": [
+							"pm.test(\"405 status code\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey\",\r\n  \"type\": \"Yatch\",\r\n  \"length\": 99\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all boats 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f2cbc9-277d-4d6b-afc6-268c2474cc7f",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all boats other jwt 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c4f01ec7-3915-4a6b-b35b-ab957a92764a",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all slips 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d1f3ce4-3300-4e55-b88b-fa92925c3d2b",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "90788ab0-87b0-4c33-9935-869d4ca972ba",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/users",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit boat with PATCH 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d77f4024-8a52-4f98-9b4c-b9fc66fa271a",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey IIII\",\r\n  \"length\": 20\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit boat with PUT 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25ce9aa9-5cbd-4c45-b330-7c400cc0cfe5",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey II\",\r\n  \"type\": \"Super Yacht\",\r\n  \"length\": 200\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d9908025-2ec4-4a73-83cd-4aac701b5d53",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat invalid permission 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e13ce72b-3f93-42e9-adda-6bd512816a5a",
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit boat invalid permission 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d482f9e4-4e6e-49f7-b3eb-bec64510168b",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Odyssey IIII\",\r\n  \"length\": 20\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat invalid permission 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e5f2ac0c-d308-44ab-87c9-5596fb5173f5",
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat invalid jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e91ab47d-c05e-4ceb-8ee3-b7fcfa5eb946",
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit slip with PUT 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "81dd565c-c9eb-4237-8392-fe4d8c6bdab0",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 100\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit slip with PATCH 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2f453eff-336d-4dba-82a6-746f4f37f459",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 50\r\n}"
+				},
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get slip 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec7aca70-c230-4672-9aa7-bea4936a8d7f",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat to slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd857486-9b74-4bd7-a4b4-a03cf7556aee",
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id}}/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id}}",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid content type 406",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "348b7c39-268b-4886-9d38-44b7f06f6e3b",
+						"exec": [
+							"pm.test(\"406 status code\", function () {\r",
+							"    pm.response.to.have.status(406);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/css",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat from slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4d795553-4af7-481a-b521-a3d05673d488",
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id}}/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id}}",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "78f1fbf6-20dd-4002-beb2-a3d63c85bd7b",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 2nd boat 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "093a0863-50f7-4b45-ad99-5fc211c6b970",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 3rd boat 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9d6a2337-5d90-424e-aa7a-3b44d2dc1c0d",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 4th boat 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "22749192-3ca0-4dbc-83fc-074f7ac976b1",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 5th boat 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "65a76782-a7c2-47aa-b0be-a91d2389ff5e",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_4}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_4}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 6th boat 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62b53075-f05e-4854-9440-e9f07eba7bf7",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_5}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_5}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 7th boat 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9d9a34bb-5690-4743-b54c-7902e4275212",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_6}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_6}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat other jwt 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20cabab0-dab8-4b28-bb5e-dafc1b48c19f",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_jwt2_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_jwt2_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 2nd boat other jwt 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "657c028c-00ba-48cd-b888-dc52e45fce76",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_jwt2_2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_jwt2_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab38a374-6ee4-4b68-88e3-e8c6b8810b71",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 2nd slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "80cfdd71-0598-4f20-9664-f94437832702",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 3rd slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a3e4b24e-4158-426c-9963-1437c3f51992",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id_2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 4th slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f744e1e6-274f-419f-96f5-2c239afc74ca",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id_3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id_3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 5th slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9db2fb43-3051-491e-8e18-6044575c75e7",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id_4}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id_4}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 6th slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f852481-27ea-4453-ab70-ab69e07c3cdc",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id_5}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id_5}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete 7th slip 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9af5e2f5-df00-4133-8050-a91155f19373",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/slips/{{slip_id_6}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"slips",
+						"{{slip_id_6}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "dd43a737-d4c2-4d01-ae9a-e1d047d317c2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "26c05fe1-7225-4e58-888a-b481065960fb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
